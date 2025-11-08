@@ -1,2 +1,2 @@
 # IT_Project_Website
-A smart SMS with clean UI, powerful features and secure data handling. 
+A collaborative HTML + CSS + JS Student management system UI interface made by Hanan ,Saqib, Aqdas, wisam, maryam, rafia, samavia, maham ,nafeesa ,saad.
