@@ -1,0 +1,46 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+void markAttendance() {
+    string name;
+    char status;
+
+    cout << "Enter student name: ";
+    getline(cin, name);
+
+    cout << "Mark attendance (P for Present, A for Absent): ";
+    cin >> status;
+
+    // Validate input
+    if (status != 'P' && status != 'A') {
+        cout << "Invalid status. Use 'P' or 'A'." << endl;
+        return;
+    }
+
+    // Open file in append mode
+    ofstream file("attendance.txt", ios::app);
+    if (!file) {
+        cerr << "Error opening file!" << endl;
+        return;
+    }
+
+    file << name << " - " << (status == 'P' ? "Present" : "Absent") << endl;
+    file.close();
+
+    cout << "Attendance marked successfully!" << endl;
+}
+
+int main() {
+    char choice;
+    do {
+        markAttendance();
+        cout << "Do you want to mark another attendance? (Y/N): ";
+        cin >> choice;
+        cin.ignore(); // Clear newline from input buffer
+    } while (choice == 'Y' || choice == 'y');
+
+    return 0;
+}
